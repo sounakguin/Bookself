@@ -5,7 +5,7 @@ import { BookshelfContext } from "../BookshelfContext";
 export default function Bookdata() {
   const [fetchdata, setfetchdata] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [query, setQuery] = useState(null); 
+  const [query, setQuery] = useState(null);
   const navigate = useNavigate();
   const { bookshelf, addToBookshelf } = useContext(BookshelfContext);
 
@@ -25,9 +25,7 @@ export default function Bookdata() {
   };
 
   useEffect(() => {
-   
-      getdata(query);
-    
+    getdata(query);
   }, [query]);
 
   const handelsearch = (event) => {
@@ -75,7 +73,9 @@ export default function Bookdata() {
       </div>
 
       {loading ? (
-        <p>Loading...</p>
+        <p className="pt-5 text-xl flex justify-center items-center">
+          Loading...
+        </p>
       ) : (
         <div className="flex justify-center w-full mt-28">
           <div className="flex flex-wrap gap-4 w-3/4 justify-center">
@@ -92,7 +92,7 @@ export default function Bookdata() {
                 </p>
                 <button
                   type="button"
-                  className="bg-green-500 text-white py-1 border rounded-full"
+                  className="bg-green-500 text-white py-1 border rounded-full mt-9"
                   onClick={() => handleAddToBookshelf(book)}
                 >
                   Add to Bookshelf
